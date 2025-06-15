@@ -2,19 +2,16 @@
 <html>
 <head>
   <title>Blocked Channels</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    ul { list-style: none; padding: 0; }
+    li { margin: 10px 0; display: flex; justify-content: space-between; align-items: center; }
+    button { background: red; color: white; border: none; padding: 5px 10px; cursor: pointer; }
+  </style>
 </head>
 <body>
   <h1>Blocked YouTube Channels</h1>
   <ul id="channelList"></ul>
-  <script>
-    chrome.storage.sync.get({ blockedChannels: [] }, (data) => {
-      const list = document.getElementById('channelList');
-      data.blockedChannels.forEach(id => {
-        const li = document.createElement('li');
-        li.textContent = id;
-        list.appendChild(li);
-      });
-    });
-  </script>
+  <script src="options.js"></script>
 </body>
 </html>
