@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blocked Channels</title>
+</head>
+<body>
+  <h1>Blocked YouTube Channels</h1>
+  <ul id="channelList"></ul>
+  <script>
+    chrome.storage.sync.get({ blockedChannels: [] }, (data) => {
+      const list = document.getElementById('channelList');
+      data.blockedChannels.forEach(id => {
+        const li = document.createElement('li');
+        li.textContent = id;
+        list.appendChild(li);
+      });
+    });
+  </script>
+</body>
+</html>
